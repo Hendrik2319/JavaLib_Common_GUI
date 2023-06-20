@@ -1,6 +1,6 @@
 # JavaLib_Common_GUI
 The `JavaLib_Common_*` libraries contains all code snippets, classes and concepts, I want to reuse over more than one project.  
-In `JavaLib_Common_GUI` contains a single GUI class. This is a static tooling class with many usefull methods all around creating Swing GUIs.
+`JavaLib_Common_GUI` contains a single GUI class. This is a static tooling class with many usefull methods all around creating Swing GUIs.
 I've used it in older projects, but newer once rely on `JavaLib_Common_Essentials`.  
 
 `JavaLib_Common_GUI` is an extract of `JavaLib_Common`.  
