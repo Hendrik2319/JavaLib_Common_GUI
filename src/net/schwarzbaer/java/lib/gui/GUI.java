@@ -126,7 +126,7 @@ public final class GUI {
     }
     
     public static void listUIDefaults(Class<?> classObj, KeyAcceptor keyAcceptor ) {
-		List<String> keys = new ArrayList<String>();
+		List<String> keys = new ArrayList<>();
 		int maxKeyLength = 0;
 		
 		for (Map.Entry<Object, Object> entry : UIManager.getDefaults().entrySet()) {
@@ -151,7 +151,7 @@ public final class GUI {
 	}
 	
     public static void listKeysOfUIDefaults(Class<?> classObj) {
-		List<String> keys = new ArrayList<String>();
+		List<String> keys = new ArrayList<>();
 		
 		for (Map.Entry<Object, Object> entry : UIManager.getDefaults().entrySet()) {
 			if ( (classObj==null) || classObj.isAssignableFrom( entry.getValue().getClass() ) ) {
@@ -355,22 +355,22 @@ public final class GUI {
 	}
 	
 	public static <AC,E> JComboBox<E> createComboBox_Gen( ComboBoxModel<E> comboBoxModel, int selected, AC actionCommand, boolean enabled, Disabler<AC> disabler, ActionListener actionListener ) {
-        return setComboBox_Gen( addToDisabler(disabler, actionCommand, new JComboBox<E>( comboBoxModel )), selected, actionCommand.toString(), enabled, actionListener);
+        return setComboBox_Gen( addToDisabler(disabler, actionCommand, new JComboBox<>( comboBoxModel )), selected, actionCommand.toString(), enabled, actionListener);
     }
 	public static <E> JComboBox<E> createComboBox_Gen( ComboBoxModel<E> comboBoxModel, int selected, String commandStr, boolean enabled, ActionListener actionListener ) {
-        return setComboBox_Gen( new JComboBox<E>( comboBoxModel ), selected, commandStr, enabled, actionListener);
+        return setComboBox_Gen( new JComboBox<>( comboBoxModel ), selected, commandStr, enabled, actionListener);
     }
 	public static <E> JComboBox<E> createComboBox_Gen( ComboBoxModel<E> comboBoxModel, String commandStr, boolean enabled, ActionListener actionListener ) {
-        return setComboBox_Gen( new JComboBox<E>( comboBoxModel ), commandStr, enabled, actionListener);
+        return setComboBox_Gen( new JComboBox<>( comboBoxModel ), commandStr, enabled, actionListener);
     }
 	public static <AC,E> JComboBox<E> createComboBox_Gen( E[] items, int selected, AC actionCommand, boolean enabled, Disabler<AC> disabler, ActionListener actionListener ) {
-        return setComboBox_Gen( addToDisabler(disabler, actionCommand, new JComboBox<E>( items )), selected, actionCommand.toString(), enabled, actionListener);
+        return setComboBox_Gen( addToDisabler(disabler, actionCommand, new JComboBox<>( items )), selected, actionCommand.toString(), enabled, actionListener);
     }
 	public static <E> JComboBox<E> createComboBox_Gen( E[] items, int selected, String commandStr, boolean enabled, ActionListener actionListener ) {
-        return setComboBox_Gen( new JComboBox<E>( items ), selected, commandStr, enabled, actionListener);
+        return setComboBox_Gen( new JComboBox<>( items ), selected, commandStr, enabled, actionListener);
     }
 	public static <E> JComboBox<E> createComboBox_Gen( E[] items, int selected, boolean enabled, Consumer<E> action) {
-        JComboBox<E> comp = new JComboBox<E>( items );
+        JComboBox<E> comp = new JComboBox<>( items );
 		return setComboBox_Gen( comp, selected, null, enabled, e->{
 			int i = comp.getSelectedIndex();
 			if (i<0) action.accept(null);
@@ -378,7 +378,7 @@ public final class GUI {
 		});
 	}
 	public static <E> JComboBox<E> createComboBox_Gen( Vector<E> items, int selected, String commandStr, boolean enabled, ActionListener actionListener ) {
-        return setComboBox_Gen( new JComboBox<E>( items ), selected, commandStr, enabled, actionListener);
+        return setComboBox_Gen( new JComboBox<>( items ), selected, commandStr, enabled, actionListener);
     }
 	private static <E> JComboBox<E> setComboBox_Gen(JComboBox<E> cmbBx, int selected, String commandStr, boolean enabled, ActionListener actionListener) {
 		cmbBx.setSelectedIndex(selected);
@@ -419,7 +419,7 @@ public final class GUI {
 		return createList( listModel, true, actionCommand, disabler, listener );
 	}
 	public static <AC,E> JList<E> createList( ListModel<E> listModel, boolean ignoreAdjusting, AC actionCommand, Disabler<AC> disabler, ActionListener listener ) {
-		JList<E> list = new JList<E>(listModel);
+		JList<E> list = new JList<>(listModel);
 		list.addListSelectionListener(new ListSelectionListener() {
 			@Override public void valueChanged(ListSelectionEvent e) {
 				if (ignoreAdjusting && e.getValueIsAdjusting()) return;
@@ -957,11 +957,11 @@ public final class GUI {
 		private HashMap<ActionCommands, Vector<JComponent>> map;
 
 		public Disabler() {
-			map = new HashMap<ActionCommands,Vector<JComponent>>();
+			map = new HashMap<>();
 		}
 		
 		public void setCareFor(ActionCommands actionCommand) {
-			map.put(actionCommand,new Vector<JComponent>());
+			map.put(actionCommand,new Vector<>());
 		}
 
 		public void setCareFor(ActionCommands[] values) {
